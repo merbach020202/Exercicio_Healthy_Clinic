@@ -64,3 +64,21 @@ SELECT * FROM Paciente
 SELECT * FROM Agendamento
 SELECT * FROM Consulta
 SELECT * FROM Comentario
+
+
+
+SELECT
+	
+	Concat(Clinica.NomeFantasia,'',Clinica.Endereco) AS [Endereço],
+	TipoUsuario.IdTipoUsuario AS [TipoUsuário],
+	Medico.Nome AS [Médico],
+	Especialidades.Especialidade AS [Especialidade],
+	Paciente.Nome AS Paciente,
+	Consulta.HoraConsulta AS [Hora consulta]
+
+FROM Clinica
+	INNER JOIN TipoUsuario			ON 
+	INNER JOIN Medico				ON
+	INNER JOIN Especialidades		ON
+	INNER JOIN Paciente				ON
+	INNER JOIN Consulta				ON	
