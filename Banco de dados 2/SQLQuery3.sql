@@ -1,6 +1,6 @@
 --DQL
 
-USE Healthy_Clinic_Manha
+USE Healthy_Manha
 
 SELECT
 	
@@ -23,4 +23,3 @@ FROM Clinica
 	INNER JOIN Prontuario		ON	 Consulta.IdProntuario = Prontuario.IdProntuario
 	INNER JOIN Comentario		ON	 						Comentario.IdComentario 
 	INNER JOIN TipoUsuario		ON 
-
