@@ -23,3 +23,6 @@ FROM Clinica
 	INNER JOIN Prontuario		ON	 Consulta.IdProntuario = Prontuario.IdProntuario
 	INNER JOIN Comentario		ON	 						Comentario.IdComentario 
 	INNER JOIN TipoUsuario		ON 
+
+
+	DROP DATABASE Tabela_Excluir
