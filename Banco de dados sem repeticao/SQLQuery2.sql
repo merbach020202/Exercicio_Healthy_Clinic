@@ -1,6 +1,6 @@
 --DQL
 
-USE Healthy_Manha
+USE Healthy_Clinic_Manha
 
 SELECT
 	
@@ -12,17 +12,13 @@ SELECT
 	Especialidades.Especialidade AS [Especialidade médico],
 	Medico.CRM AS [CRM],
 	Prontuario.DescricaoConsulta AS Prontuário,
-	Comentario.Comentario AS [Comentário],
-	TipoUsuario.IdTipoUsuario AS [TipoUsuário]
+	Comentario.Comentario AS [Comentário]
 
-FROM Clinica
-	INNER JOIN Consulta			ON	 Comentario.IdConsulta = Consulta.IdConsulta
-	INNER JOIN Paciente			ON	 Consulta.IdPaciente = Paciente.IdPaciente
-	INNER JOIN Medico			ON	 Consulta.IdMedico = Medico.IdMedico
+FROM Consulta
+	INNER JOIN Clinica			ON	 Clinica.NomeFantasia = Clinica.NomeFantasia
+	INNER JOIN Paciente			ON	 Paciente.Nome = Paciente.Nome
+	INNER JOIN Medico			ON	 Medico.Nome = Medico.Nome
 	INNER JOIN Especialidades	ON	 Medico.IdEspecialidades = Especialidades.IdEspecialidades
 	INNER JOIN Prontuario		ON	 Consulta.IdProntuario = Prontuario.IdProntuario
-	INNER JOIN Comentario		ON	 						Comentario.IdComentario 
-	INNER JOIN TipoUsuario		ON 
-
-
-	DROP DATABASE Tabela_Excluir
+	INNER JOIN Comentario		ON	 Paciente.IdComentario = Comentario.IdComentario 
+	INNER JOIN TipoUsuario		ON	 Paciente.IdComentario = Comentario.IdComentario

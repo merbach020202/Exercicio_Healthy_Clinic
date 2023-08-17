@@ -1,8 +1,8 @@
 --DDL
 
-CREATE DATABASE Healthy_Clinic_Manha
+CREATE DATABASE Healthy_Manha
 
-USE Healthy_Clinic_Manha
+USE Healthy_Manha
 
 CREATE TABLE Clinica
 (
@@ -91,4 +91,3 @@ CREATE TABLE Consulta
 	HoraConsulta VARCHAR(30),
 	DataConsulta VARCHAR(50)
 )
-

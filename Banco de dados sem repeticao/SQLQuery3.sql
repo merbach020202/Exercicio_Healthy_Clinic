@@ -1,6 +1,6 @@
 --DML
 
-USE Healthy_Manha
+USE Healthy_Clinic_Manha
 
 INSERT INTO Clinica (Endereco,HorarioFuncionamento,CNPJ,NomeFantasia,RazaoSocial)
 VALUES 
@@ -35,24 +35,25 @@ VALUES
 
 INSERT INTO Paciente (IdComentario, IdTipoUsuario, Nome, Email, Senha)
 VALUES
-	('Atendimento bom',1,'Maria','Maria@gmail.com','123'),
-	('Médico atencioso',2,'Carlos','Carlos@gmail','1234'),
-	('Demorei muito para ser atendido',3,'Guilherme','Guilherme','12345')
+	(1, 1,'Maria','Maria@gmail.com','123'),
+	(2, 2,'Carlos','Carlos@gmail','1234'),
+	(3, 3,'Guilherme','Guilherme','12345')
 
 INSERT INTO Agendamento (IdMedico, IdAdministrador, IdPaciente, DataConsulta, HoraConsulta)
 VALUES 
-	(1,1,1,'20/05/2022','08:30hrs'),
-	(2,1,2,'27/10,2021,','10:00hrs')
+	(1,1,2,'20/05/2022','08:30hrs'),
+	(2,2,3,'27/10,2021,','10:00hrs')
 
-INSERT INTO Consulta (Comentario, IdMedico, IdProntuario, IdAgendamento, IdPaciente, HoraConsulta)
+INSERT INTO Consulta (IdComentario, IdMedico, IdProntuario, IdAgendamento, IdPaciente, HoraConsulta, DataConsulta)
 VALUES 
-	('Ótimo atendimento',1,1,1,1,'14:00hrs'),
-	('Consulta rápida',2,2,2,2,'15:30hrs')
+	(1,1,1,3,2,'14:00hrs','10/02/2023'),
+	(2,2,2,4,3,'15:30hrs','30/04/2020')
 
 INSERT INTO Comentario (Comentario)
 VALUES
 		('O médico me tratou muito bem'),
-		('Fiquei muito tempo esperando pelo atendimento')
+		('Fiquei muito tempo esperando pelo atendimento'),
+		('Não gostei do atendimento')
 
 SELECT * FROM Clinica
 SELECT * FROM TipoUsuario

@@ -1,6 +1,8 @@
-CREATE DATABASE Healthy_Manha
+--DDL
 
-USE Healthy_Manha
+CREATE DATABASE Healthy_Clinic_Manha
+
+USE Healthy_Clinic_Manha
 
 CREATE TABLE Clinica
 (
@@ -30,11 +32,16 @@ CREATE TABLE Especialidades
 	Especialidade VARCHAR(100) NOT NULL
 )
 
+CREATE TABLE Comentario
+(
+	IdComentario INT PRIMARY KEY IDENTITY,
+	Comentario TEXT
+)
 
 CREATE TABLE Medico
 (
 	IdMedico INT PRIMARY KEY IDENTITY ,
-	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario) NOT NULL UNIQUE,
+	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario) NOT NULL,
 	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
 	IdEspecialidades INT FOREIGN KEY REFERENCES Especialidades(IdEspecialidades) NOT NULL,
 	Nome VARCHAR(50),
@@ -43,10 +50,12 @@ CREATE TABLE Medico
 	CRM VARCHAR(50)
 )
 
+
+
 CREATE TABLE Administrador
 (
 	IdAdministrador INT PRIMARY KEY IDENTITY,
-	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario) NOT NULL UNIQUE,
+	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario) NOT NULL,
 	AgendarConsulta VARCHAR(50),
 	ExcluirConsulta VARCHAR(50)
 )
@@ -55,7 +64,7 @@ CREATE TABLE Paciente
 (
 	IdPaciente INT PRIMARY KEY IDENTITY,
 	IdComentario INT FOREIGN KEY REFERENCES Comentario(IdComentario),
-	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario) NOT NULL UNIQUE,
+	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario) NOT NULL,
 	Nome VARCHAR(100),
 	Email VARCHAR(100),
 	Senha VARCHAR(100)
@@ -82,10 +91,3 @@ CREATE TABLE Consulta
 	HoraConsulta VARCHAR(30),
 	DataConsulta VARCHAR(50)
 )
-
-CREATE TABLE Comentario
-(
-	IdComentario INT PRIMARY KEY IDENTITY,
-	Comentario TEXT
-)
-
